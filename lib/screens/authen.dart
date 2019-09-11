@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:doctor_com/screens/homemenu.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
+
 
 class Authen extends StatefulWidget {
   @override
@@ -12,8 +11,10 @@ class _AuthenState extends State<Authen> {
 
 //Explicit
 
-
 //Method
+
+  
+
   Widget showLogo() {
     return Image.asset(
       'images/logo.png',
