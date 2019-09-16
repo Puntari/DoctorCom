@@ -4,28 +4,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctor_com/menu/product_menu.dart';
 import 'package:flutter/material.dart';
 
-
 class ShowMenu extends StatefulWidget {
   @override
   _ShowMenuState createState() => _ShowMenuState();
 }
 
 class _ShowMenuState extends State<ShowMenu> {
-  @override
-  Widget build(BuildContext context) {
-  
-    return Scaffold(appBar: AppBar(title: Text('TEACH'),),);
-  }
-
-
-  /*
-//  Explicit
-  Firestore firestore = Firestore.instance;
+  //Explicit
+  Firestore fireStore = Firestore.instance;
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
   List<ProductMenu> productMenus = [];
 
-// Method
+  //Method
 
   @override
   void initState() {
@@ -34,17 +25,17 @@ class _ShowMenuState extends State<ShowMenu> {
   }
 
   Future<void> readFireStore() async {
-    CollectionReference collectionReference = firestore.collection('home');
+    CollectionReference collectionReference = fireStore.collection('home');
     subscription = await collectionReference.snapshots().listen((dataSnapshop) {
       snapshots = dataSnapshop.documents;
 
       for (var snapshot in snapshots) {
-        String nameMenu = snapshot.data['Name'];
-        print('nameMenu = $nameMenu');
+        String name = snapshot.data['Name'];
+        print('name ==> $name');
 
-        String urlMenu = snapshot.data['Url'];
+        String url = snapshot.data['Url'];
 
-        ProductMenu productMenu = ProductMenu(nameMenu, urlMenu);
+        ProductMenu productMenu = ProductMenu(name, url);
 
         setState(() {
           productMenus.add(productMenu);
@@ -82,18 +73,23 @@ class _ShowMenuState extends State<ShowMenu> {
           return GestureDetector(
             child: Container(
               decoration: index % 2 == 0
-                  ? BoxDecoration(color: Colors.blueGrey[50])
-                  : BoxDecoration(color: Colors.blueGrey[200]),
+                  ? BoxDecoration(color: Colors.orange[50])
+                  : BoxDecoration(color: Colors.orange[200]),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   showImage(index),
                   SizedBox(
                     width: 8.0,
-                  )
+                  ),
                 ],
               ),
             ),
+            onTap: () {
+              print('you click index = $index');
+
+              ///click ที่รูปแล้วไปอีกหน้า
+            },
           );
         },
       ),
@@ -105,6 +101,5 @@ class _ShowMenuState extends State<ShowMenu> {
     return Container(
       child: showListMenu(),
     );
-  }*/
   }
-  
+}

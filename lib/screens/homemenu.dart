@@ -1,5 +1,7 @@
+import 'package:doctor_com/screens/showmenu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
+
+import 'contact.dart';
 
 class Homemenu extends StatefulWidget {
   @override
@@ -8,144 +10,104 @@ class Homemenu extends StatefulWidget {
 
 class _HomemenuState extends State<Homemenu> {
   //Explicit
-  final formKey = GlobalKey<FormState>();
- 
+
+  Widget myWidget = ShowMenu();
+
   //Method
-  Widget mySizeBox() {
-    return SizedBox(
-      width: 8.0,
-    );
-  }
 
-  Widget teachButton() {
-
-    return RaisedButton(
-        color: Colors.yellow[300],
-        child: Text('Teach'),
-      onPressed: () {
-        print('You Click Teach');
+  Widget menuShowMenu() {
+    return ListTile(
+      leading: Icon(
+        Icons.home,
+        size: 35.0,
+        color: Colors.lightBlue,
+      ),
+      title: Text(
+        'Menu',
+        style: TextStyle(fontSize: 14.0),
+      ),
+      onTap: () {
+        setState(() {
+          myWidget = ShowMenu();
+          Navigator.of(context).pop();
+        });
       },
     );
   }
 
-  Widget scanButton() {
-    return RaisedButton(
-      color: Colors.green[300],
-      child: Text('Scan'),
-      onPressed: () {
-        print('You Click Teach');
+  Widget menuShowcontact() {
+    return ListTile(
+      leading: Icon(
+        Icons.contact_phone,
+        size: 35.0,
+        color: Colors.lightBlue,
+      ),
+      title: Text(
+        'Contact',
+        style: TextStyle(fontSize: 14.0),
+      ),
+      onTap: () {
+        setState(() {
+          myWidget = ShowContact();
+          Navigator.of(context).pop();
+        });
       },
     );
   }
 
-  Widget searchButton() {
-    return RaisedButton(
-      color: Colors.lightBlue[300],
-      child: Text('Search'),
-      onPressed: () {
-        print('You Click Teach');
-      },
-    );
+  @override
+  void initState() {
+    super.initState();
   }
 
-  Widget myButton() {
-    return Container(
-      width: 150.0,
-      child: Row(
+  Widget showDrawMenu() {
+    return Drawer(
+      child: ListView(
         children: <Widget>[
-          Expanded(
-            child: teachButton(),
-          ),
+          headMenu(),
+          menuShowMenu(),
+          menuShowcontact(),
         ],
       ),
     );
   }
 
-  Widget myButtoni() {
-    return Container(
-      width: 150.0,
-      child: Row(
+  Widget headMenu() {
+    return DrawerHeader(
+      decoration: BoxDecoration(
+        gradient: RadialGradient(
+          colors: [Colors.yellow[100], Colors.yellow[900]],
+          radius: 1.0,
+          center: Alignment.center,
+        ),
+      ), //พื้นหลังด้านกล่องบน
+      child: Column(
         children: <Widget>[
-          Expanded(
-            child: scanButton(),
-          ),
+          Container(
+            width: 70.0,
+            height: 70.0,
+            child: Image.asset('images/logo.png'),
+          ), //โชว์รูป
+          Text(
+            'DOCTORCOM',
+            style: TextStyle(
+              color: Colors.blue[900],
+              fontSize: 25.0,
+            ),
+          )
         ],
       ),
     );
-  }
-
-  Widget myButtonii() {
-    return Container(
-      width: 150.0,
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: searchButton(),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget showImage() {
-    return Container(
-        width: 450.0,
-        height: 130.0,
-        child: Image.asset(
-          'images/download.png',
-          fit: BoxFit.contain,
-        ));
-  }
-
-  Widget showImageii() {
-    return Container(
-        width: 450.0,
-        height: 130.0,
-        child: Image.asset(
-          'images/search.png',
-          fit: BoxFit.contain,
-        ));
-  }
-
-  Widget showImagei() {
-    return Container(
-        width: 450.0,
-        height: 130.0,
-        child: Image.asset(
-          'images/scan.png',
-          fit: BoxFit.contain,
-        ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Menu'),
-          backgroundColor: Colors.yellow[900],
-        ),
-        body: Form(
-          key: formKey,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.orange[200],
-            ),
-            alignment: Alignment.topCenter,
-            padding: EdgeInsets.only(top: 30.0),
-            child: Container(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  showImage(),
-                  myButton(),
-                  showImagei(),
-                  myButtoni(),
-                  showImageii(),
-                  myButtonii(),
-                ],
-              ),
-            ),
-          ),
-        ));
+      appBar: AppBar(
+        title: Text('Menu'),
+      ),
+      body: myWidget,
+      drawer: showDrawMenu(),
+    );
   }
 }
