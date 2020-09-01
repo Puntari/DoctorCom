@@ -77,12 +77,12 @@ class _ShowMenuState extends State<ShowMenu> {
                 children: <Widget>[
                   showImage(index),
                   SizedBox(
-                    width: 10.0,git ///
+                    width: 8.0,
                   ),
                 ],
               ),
             onTap: () {
-              print('you click index = $index');
+              print('you click index = $index'); 
 
               ///click ที่รูปแล้วไปอีกหน้า
             },
