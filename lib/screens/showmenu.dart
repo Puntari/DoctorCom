@@ -71,20 +71,16 @@ class _ShowMenuState extends State<ShowMenu> {
         itemCount: productMenus.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            child: Container(
-              decoration: index % 2 == 0
-                  ? BoxDecoration(color: Colors.orange[50])
-                  : BoxDecoration(color: Colors.orange[200]),
+            
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   showImage(index),
                   SizedBox(
-                    width: 8.0,
+                    width: 10.0,
                   ),
                 ],
               ),
-            ),
             onTap: () {
               print('you click index = $index');
 
