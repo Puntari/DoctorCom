@@ -73,11 +73,11 @@ class _ShowMenuState extends State<ShowMenu> {
           return GestureDetector(
             
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   showImage(index),
                   SizedBox(
-                    width: 10.0,
+                    width: 10.0,git ///
                   ),
                 ],
               ),
