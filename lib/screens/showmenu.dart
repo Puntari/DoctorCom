@@ -46,15 +46,23 @@ class _ShowMenuState extends State<ShowMenu> {
 
   Widget showImage(int index) {
     return Container(
-      margin: EdgeInsets.all(5.0),
+      margin: EdgeInsets.all(20.0),
       decoration: BoxDecoration(
           border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
-      width: 150.0,
-      height: 100.0,
+      width: 250.0,
+      height: 200.0,
       child: Image.network(
         productMenus[index].url,
         fit: BoxFit.contain,
       ),
+    );
+  }
+
+   Widget Showtext(int index) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        showName(index)],
     );
   }
 
@@ -71,19 +79,15 @@ class _ShowMenuState extends State<ShowMenu> {
         itemCount: productMenus.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            child: Container(
-              decoration: index % 2 == 0
-                  ? BoxDecoration(color: Colors.orange[50])
-                  : BoxDecoration(color: Colors.orange[200]),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  showImage(index),
-                  SizedBox(
-                    width: 8.0,
-                  ),
-                ],
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                showImage(index),
+                SizedBox(
+                  width: 8.0,
+                ),
+               // Showtext(index),
+              ],
             ),
             onTap: () {
               print('you click index = $index');
