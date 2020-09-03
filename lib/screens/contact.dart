@@ -9,7 +9,7 @@ class _ShowContactState extends State<ShowContact> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Contact'),
+      child: Text('....'),
     );
   }
 }
