@@ -20,10 +20,10 @@ class _HomemenuState extends State<Homemenu> {
       leading: Icon(
         Icons.home,
         size: 35.0,
-        color: Colors.lightBlue,
+        color: Colors.grey,
       ),
       title: Text(
-        'Menu',
+        'Operatingsystem',
         style: TextStyle(fontSize: 14.0),
       ),
       onTap: () {
@@ -35,12 +35,52 @@ class _HomemenuState extends State<Homemenu> {
     );
   }
 
+    Widget menuShowcontents(){
+    return ListTile(
+      leading: Icon(
+        Icons.book,
+        size: 35.0,
+        color: Colors.grey,
+      ),
+      title: Text(
+        'Contens',
+        style: TextStyle(fontSize: 14.0),
+      ),
+      onTap: () {
+        setState(() {
+          myWidget = menuShowcontents();
+          Navigator.of(context).pop();
+        });
+      },
+    );
+  }
+
+  Widget menuShowcamera(){
+    return ListTile(
+      leading: Icon(
+        Icons.photo_camera,
+        size: 35.0,
+        color: Colors.grey,
+      ),
+      title: Text(
+        'Camera',
+        style: TextStyle(fontSize: 14.0),
+      ),
+      onTap: () {
+        setState(() {
+          myWidget = menuShowcamera();
+          Navigator.of(context).pop();
+        });
+      },
+    );
+  }
+
   Widget menuShowcontact() {
     return ListTile(
       leading: Icon(
         Icons.contact_phone,
         size: 35.0,
-        color: Colors.lightBlue,
+        color: Colors.grey,
       ),
       title: Text(
         'Contact',
@@ -49,6 +89,26 @@ class _HomemenuState extends State<Homemenu> {
       onTap: () {
         setState(() {
           myWidget = ShowContact();
+          Navigator.of(context).pop();
+        });
+      },
+    );
+  }
+
+   Widget menuShowabout() {
+    return ListTile(
+      leading: Icon(
+        Icons.info,
+        size: 35.0,
+        color: Colors.grey,
+      ),
+      title: Text(
+        'about',
+        style: TextStyle(fontSize: 14.0),
+      ),
+      onTap: () {
+        setState(() {
+          myWidget = menuShowabout();
           Navigator.of(context).pop();
         });
       },
@@ -66,7 +126,10 @@ class _HomemenuState extends State<Homemenu> {
         children: <Widget>[
           headMenu(),
           menuShowMenu(),
+          menuShowcontents(),
+          menuShowcamera(),
           menuShowcontact(),
+          menuShowabout(),
         ],
       ),
     );
@@ -92,7 +155,8 @@ class _HomemenuState extends State<Homemenu> {
             'DOCTORCOM',
             style: TextStyle(
               color: Colors.blue[900],
-              fontSize: 25.0,
+              fontFamily: 'AmaticSC',
+              fontSize: 35.0,
             ),
           )
         ],
@@ -104,7 +168,7 @@ class _HomemenuState extends State<Homemenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Menu'),
+        title: Text('DoctorCom'),
       ),
       body: myWidget,
       drawer: showDrawMenu(),

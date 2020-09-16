@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctor_com/menu/product_menu.dart';
+import 'package:doctor_com/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class ShowMenu extends StatefulWidget {
@@ -46,7 +47,7 @@ class _ShowMenuState extends State<ShowMenu> {
 
   Widget showImage(int index) {
     return Container(
-      margin: EdgeInsets.all(20.0),
+      margin: EdgeInsets.all(6.0),
       decoration: BoxDecoration(
           border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
       width: 250.0,
@@ -58,13 +59,13 @@ class _ShowMenuState extends State<ShowMenu> {
     );
   }
 
-   Widget Showtext(int index) {
+   /*Widget Showtext(int index) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         showName(index)],
     );
-  }
+  }*/
 
   Widget showName(int index) {
     return Text(
@@ -86,11 +87,17 @@ class _ShowMenuState extends State<ShowMenu> {
                 SizedBox(
                   width: 8.0,
                 ),
-               // Showtext(index),
+                //Showtext(index),
               ],
             ),
             onTap: () {
               print('you click index = $index');
+              var showDetailRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => ShowDetail(
+                        productMenu: productMenus[index],
+                      ));
+              Navigator.of(context).push(showDetailRoute);
+
 
               ///click ที่รูปแล้วไปอีกหน้า
             },

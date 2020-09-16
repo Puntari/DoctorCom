@@ -13,8 +13,6 @@ class _AuthenState extends State<Authen> {
 
 //Method
 
-  
-
   Widget showLogo() {
     return Image.asset(
       'images/logo.png',

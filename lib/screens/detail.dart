@@ -58,7 +58,7 @@ class _ShowDetailState extends State<ShowDetail> {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        title: Text('แสดงรายละเอียด'),
+        title: Text('สอนลงระบบปฎิบัติการ'),
       ),
       body: ListView(
         padding: EdgeInsets.all(20.0),
