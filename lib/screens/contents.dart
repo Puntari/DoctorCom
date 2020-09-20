@@ -1,24 +1,12 @@
-/*import 'package:flutter/material.dart';
-
-class ShowContents extends StatefulWidget {
-  @override
-  _ShowContactState createState() => _ShowContactState();
-}
-
-class _ShowContactState extends State<ShowContents> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text('สารบัญ'),
-    );
-  }
-}*/
-
 
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+// ignore: unused_import
 import 'package:doctor_com/menu/product_contentsdetail.dart';
+// ignore: unused_import
+import 'package:doctor_com/menu/product_detail.dart';
+import 'package:doctor_com/menu/product_detail.dart' as prefix0;
 import 'package:doctor_com/screens/contentsdetail.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +20,7 @@ class _ShowContactState extends State<ShowContents> {
   Firestore fireStore = Firestore.instance;
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
-  List<ProductContentsdetail> productContentsdetail = [];
+  List<prefix0.ProductContentsdetail> productContentsdetail = [];
 
   //Method
 
@@ -51,10 +39,9 @@ class _ShowContactState extends State<ShowContents> {
         String name = snapshot.data['Name'];
         print('name ==> $name');
 
-        String url = snapshot.data['Url'];
+        String detail = snapshot.data['Detail'];
 
-        ProductContentsdetail productContentsdetail = ProductContentsdetail(name, url);
-
+        prefix0.ProductContentsdetail productContentsdetail =prefix0.ProductContentsdetail(name, detail);
         setState(() {
           productContentsdetail.add(productContentsdetail);
         });
@@ -62,20 +49,20 @@ class _ShowContactState extends State<ShowContents> {
     });
   }
 
-  Widget ShowText(int index) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        showName(index)],
+  Widget myDivider() {
+    return Divider(
+      height: 5.0,
+      color: Colors.grey,
     );
-  }
+  } //เส้นขั้น
 
   Widget showName(int index) {
     return Text(
       productContentsdetail[index].name,
-      style: TextStyle(fontSize: 24.0),
+      style: TextStyle(fontSize: 24.0,),
     );
   }
+ 
 
   Widget showListMenucontents() {
     return Container(
@@ -86,7 +73,8 @@ class _ShowContactState extends State<ShowContents> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                ShowText(index),
+                showName(index),
+                myDivider(),
                 SizedBox(
                   width: 8.0,
                 ),
@@ -100,8 +88,6 @@ class _ShowContactState extends State<ShowContents> {
                         productContentsdetail: productContentsdetail[index],
                       ));
                             Navigator.of(context).push(showContentsdetailRoute);
-
-
               ///click ที่รูปแล้วไปอีกหน้า
             },
           );
@@ -117,4 +103,3 @@ class _ShowContactState extends State<ShowContents> {
     );
   }
 }
-

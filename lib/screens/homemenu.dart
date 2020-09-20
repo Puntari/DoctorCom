@@ -1,3 +1,6 @@
+import 'package:doctor_com/screens/about.dart';
+import 'package:doctor_com/screens/camera.dart';
+import 'package:doctor_com/screens/contents.dart';
 import 'package:doctor_com/screens/showmenu.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +17,6 @@ class _HomemenuState extends State<Homemenu> {
   Widget myWidget = ShowMenu();
 
   //Method
-
   Widget menuShowMenu() {
     return ListTile(
       leading: Icon(
@@ -35,25 +37,26 @@ class _HomemenuState extends State<Homemenu> {
     );
   }
 
-    Widget menuShowcontents(){
+   Widget menuShowcontents() {
     return ListTile(
       leading: Icon(
-        Icons.book,
+        Icons.home,
         size: 35.0,
         color: Colors.grey,
       ),
       title: Text(
-        'Contens',
+        'contents',
         style: TextStyle(fontSize: 14.0),
       ),
-      onTap: () {
-        setState(() {
-          myWidget = menuShowcontents();
-          Navigator.of(context).pop();
-        });
-      },
+     onTap: () {
+       setState(() {
+         myWidget = ShowContents ();
+         Navigator.of(context).pop();
+       });
+     },
     );
   }
+
 
   Widget menuShowcamera(){
     return ListTile(
@@ -68,7 +71,7 @@ class _HomemenuState extends State<Homemenu> {
       ),
       onTap: () {
         setState(() {
-          myWidget = menuShowcamera();
+          myWidget = ShowCamera();
           Navigator.of(context).pop();
         });
       },
@@ -106,12 +109,12 @@ class _HomemenuState extends State<Homemenu> {
         'about',
         style: TextStyle(fontSize: 14.0),
       ),
-      onTap: () {
-        setState(() {
-          myWidget = menuShowabout();
-          Navigator.of(context).pop();
-        });
-      },
+     onTap: () {
+       setState(() {
+         myWidget = ShowAbout();
+         Navigator.of(context).pop();
+       });
+     },
     );
   }
 

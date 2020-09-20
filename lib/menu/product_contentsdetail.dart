@@ -1,10 +1,10 @@
 class ProductContentsdetail {
 
 //  Field
-String name, url;
+String name, detail;
 
 //  Constructor
-ProductContentsdetail(this.name, this.url);
+ProductContentsdetail(this.name, this.detail);
 
   void add(ProductContentsdetail productContentsdetail) {}
 }

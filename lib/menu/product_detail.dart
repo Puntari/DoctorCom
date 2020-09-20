@@ -1,10 +1,12 @@
-class ProductDetail {
+class ProductContentsdetail {
 
 //  Field
 String name, url;
 
 //  Constructor
-ProductDetail(this.name, this.url);
+ProductContentsdetail(this.name, this.url);
 
-  void add(ProductDetail productDetail) {}
+  String get detail => null;
+
+  void add(ProductContentsdetail productContentsdetail) {}
 }

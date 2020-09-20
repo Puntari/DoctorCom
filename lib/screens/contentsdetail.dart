@@ -1,8 +1,12 @@
+// ignore: unused_import
 import 'package:doctor_com/menu/product_contentsdetail.dart';
+// ignore: unused_import
+import 'package:doctor_com/menu/product_detail.dart';
+import 'package:doctor_com/menu/product_detail.dart' as prefix0;
 import 'package:flutter/material.dart';
 
 class ShowContentsdetail extends StatefulWidget {
- final ProductContentsdetail productContentsdetail;
+ final prefix0.ProductContentsdetail productContentsdetail;
  ShowContentsdetail({Key key, this.productContentsdetail}) : super(key: key); //รับค่าของmodel
 
   @override
@@ -11,8 +15,8 @@ class ShowContentsdetail extends StatefulWidget {
 
 class _ShowContentsdetailState extends State<ShowContentsdetail> {
  // Explicit
-  ProductContentsdetail productContentsdetail;
-  String name = '', url = '';
+ prefix0.ProductContentsdetail productContentsdetail;
+  String name = '', detail = '';
 
   // Method
   @override
@@ -23,7 +27,7 @@ class _ShowContentsdetailState extends State<ShowContentsdetail> {
  setState(() {
       productContentsdetail = widget.productContentsdetail;
       name = productContentsdetail.name;
-      url = productContentsdetail.url;
+      detail = productContentsdetail.detail;
       print('name = $name');
     });
   }
@@ -44,7 +48,7 @@ Widget showName() {
   Widget build(BuildContext context) {
      return Scaffold(
       appBar: AppBar(
-        title: Text('สอนลงระบบปฎิบัติการ'),
+        title: Text('วิธีแก้ปัญหา'),
       ),
       body: ListView(
         padding: EdgeInsets.all(20.0),
@@ -56,11 +60,4 @@ Widget showName() {
       ),
     );
   }
-    }
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
-  }
-  
+}
