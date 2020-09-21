@@ -97,8 +97,6 @@ class _ShowMenuState extends State<ShowMenu> {
                         productMenu: productMenus[index],
                       ));
               Navigator.of(context).push(showDetailRoute);
-
-
               ///click ที่รูปแล้วไปอีกหน้า
             },
           );

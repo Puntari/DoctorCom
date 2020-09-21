@@ -5,8 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 // ignore: unused_import
 import 'package:doctor_com/menu/product_contentsdetail.dart';
 // ignore: unused_import
-import 'package:doctor_com/menu/product_detail.dart';
-import 'package:doctor_com/menu/product_detail.dart' as prefix0;
 import 'package:doctor_com/screens/contentsdetail.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +18,7 @@ class _ShowContactState extends State<ShowContents> {
   Firestore fireStore = Firestore.instance;
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
-  List<prefix0.ProductContentsdetail> productContentsdetail = [];
+  List<ProductContentsdetail> productContentsdetail = [];
 
   //Method
 
@@ -39,9 +37,17 @@ class _ShowContactState extends State<ShowContents> {
         String name = snapshot.data['Name'];
         print('name ==> $name');
 
-        String detail = snapshot.data['Detail'];
+        String problem = snapshot.data['Problem'];
+        print('problem ==> $problem');
 
-        prefix0.ProductContentsdetail productContentsdetail =prefix0.ProductContentsdetail(name, detail);
+        String solve = snapshot.data['Solve'];
+        print('solve = $solve');
+        
+        String url = snapshot.data['Url']; 
+
+        ProductContentsdetail productContentsdetail =
+        ProductContentsdetail(name, problem, solve, url);
+
         setState(() {
           productContentsdetail.add(productContentsdetail);
         });
@@ -49,12 +55,19 @@ class _ShowContactState extends State<ShowContents> {
     });
   }
 
-  Widget myDivider() {
-    return Divider(
-      height: 5.0,
-      color: Colors.grey,
+   Widget showImage(int index) {
+    return Container(
+      margin: EdgeInsets.all(5.0),
+      decoration: BoxDecoration(
+          border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
+      width: 150.0,
+      height: 100.0,
+      child: Image.network(
+        productContentsdetail[index].url,
+        fit: BoxFit.contain,
+      ),
     );
-  } //เส้นขั้น
+  }
 
   Widget showName(int index) {
     return Text(
@@ -63,6 +76,14 @@ class _ShowContactState extends State<ShowContents> {
     );
   }
  
+  Widget showText(int index) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        showName(index),
+      ],
+    );
+  }
 
   Widget showListMenucontents() {
     return Container(
@@ -73,12 +94,11 @@ class _ShowContactState extends State<ShowContents> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                showName(index),
-                myDivider(),
+                showImage(index),
                 SizedBox(
                   width: 8.0,
                 ),
-                
+                showText(index),
               ],
             ),
             onTap: () {
@@ -87,7 +107,7 @@ class _ShowContactState extends State<ShowContents> {
                   builder: (BuildContext context) => ShowContentsdetail(
                         productContentsdetail: productContentsdetail[index],
                       ));
-                            Navigator.of(context).push(showContentsdetailRoute);
+                  Navigator.of(context).push(showContentsdetailRoute);
               ///click ที่รูปแล้วไปอีกหน้า
             },
           );
