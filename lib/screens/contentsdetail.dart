@@ -38,7 +38,7 @@ Widget showName() {
       child: Text(
         productContentsdetail.name,
         style: TextStyle(
-          fontSize: 30.0,
+          fontSize: 15.0,
           color: Colors.purple,
         ),
       ),
@@ -48,6 +48,7 @@ Widget showName() {
 
   Widget build(BuildContext context) {
      return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text('วิธีแก้ปัญหา'),
       ),

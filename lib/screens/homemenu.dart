@@ -40,7 +40,7 @@ class _HomemenuState extends State<Homemenu> {
    Widget menuShowcontents() {
     return ListTile(
       leading: Icon(
-        Icons.home,
+        Icons.book,
         size: 35.0,
         color: Colors.grey,
       ),
@@ -142,7 +142,7 @@ class _HomemenuState extends State<Homemenu> {
     return DrawerHeader(
       decoration: BoxDecoration(
         gradient: RadialGradient(
-          colors: [Colors.yellow[100], Colors.yellow[900]],
+          colors: [Colors.yellow[100], Colors.yellow],
           radius: 1.0,
           center: Alignment.center,
         ),

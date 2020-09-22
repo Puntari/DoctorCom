@@ -18,8 +18,8 @@ class _ShowContactState extends State<ShowContents> {
   Firestore fireStore = Firestore.instance;
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
-  List<ProductContentsdetail> productContentsdetail = [];
-
+  List<ProductContentsdetail> productContentsdetails = [];
+  
   //Method
 
   @override
@@ -49,7 +49,7 @@ class _ShowContactState extends State<ShowContents> {
         ProductContentsdetail(name, problem, solve, url);
 
         setState(() {
-          productContentsdetail.add(productContentsdetail);
+          productContentsdetails.add(productContentsdetail);
         });
       }
     });
@@ -63,7 +63,7 @@ class _ShowContactState extends State<ShowContents> {
       width: 150.0,
       height: 100.0,
       child: Image.network(
-        productContentsdetail[index].url,
+        productContentsdetails[index].url,
         fit: BoxFit.contain,
       ),
     );
@@ -71,8 +71,8 @@ class _ShowContactState extends State<ShowContents> {
 
   Widget showName(int index) {
     return Text(
-      productContentsdetail[index].name,
-      style: TextStyle(fontSize: 24.0,),
+      productContentsdetails[index].name,
+      style: TextStyle(fontSize: 18.0,),
     );
   }
  
@@ -88,11 +88,11 @@ class _ShowContactState extends State<ShowContents> {
   Widget showListMenucontents() {
     return Container(
       child: ListView.builder(
-        itemCount: productContentsdetail.length,
+        itemCount: productContentsdetails.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 showImage(index),
                 SizedBox(
@@ -105,7 +105,7 @@ class _ShowContactState extends State<ShowContents> {
               print('you click index = $index');
               var showContentsdetailRoute = MaterialPageRoute(
                   builder: (BuildContext context) => ShowContentsdetail(
-                        productContentsdetail: productContentsdetail[index],
+                        productContentsdetail: productContentsdetails[index],
                       ));
                   Navigator.of(context).push(showContentsdetailRoute);
               ///click ที่รูปแล้วไปอีกหน้า
