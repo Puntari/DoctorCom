@@ -1,6 +1,5 @@
 
 import 'dart:async';
-import 'dart:html';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 // ignore: unused_import
@@ -31,7 +30,7 @@ class _ShowContactState extends State<ShowContents> {
   }
 
   Future<void> readFireStore() async {
-    CollectionReference collectionReference = fireStore.collection('contents');
+    CollectionReference collectionReference = fireStore.collection("contents");
     subscription = await collectionReference.snapshots().listen((dataSnapshop) {
       snapshots = dataSnapshop.documents;
       
@@ -74,10 +73,19 @@ class _ShowContactState extends State<ShowContents> {
   }
 
   Widget showName(int index) {
-    return Text(
-      productContentsdetails[index].name,
-      style: TextStyle(fontSize: 24.0,),
+    return Container(
+      width: 200,
+      child: Text(
+        productContentsdetails[index].name,
+        style: TextStyle(fontSize: 20.0,),
+        ),
     );
+    
+    /*Text(
+      productContentsdetails[index].name,
+      style: TextStyle(fontSize: 16.0,),
+    );*/
+    
   }
  
   Widget showText(int index) {
@@ -89,12 +97,17 @@ class _ShowContactState extends State<ShowContents> {
     );
   }
 
+
   Widget showListMenucontents() {
     return Container(
       child: ListView.builder(
         itemCount: productContentsdetails.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
+            child: Container(
+              decoration: index % 2 == 0
+                  ? BoxDecoration(color: Colors.blue[50])
+                  : BoxDecoration(color: Colors.blue[150]),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -105,6 +118,8 @@ class _ShowContactState extends State<ShowContents> {
                 showText(index),
               ],
             ),
+            ),
+        
             onTap: () {
               print('you click index = $index');
               var showContentsdetailRoute = MaterialPageRoute(

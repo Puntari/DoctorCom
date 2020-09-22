@@ -34,11 +34,11 @@ class _ShowContentsdetailState extends State<ShowContentsdetail> {
   }
 Widget showName() {
     return Container(
-      alignment: Alignment.center,
+      alignment: Alignment.topCenter,
       child: Text(
         productContentsdetail.name,
         style: TextStyle(
-          fontSize: 30.0,
+          fontSize: 24.0,
           color: Colors.purple,
         ),
       ),
