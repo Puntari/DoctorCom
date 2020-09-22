@@ -26,7 +26,7 @@ class _ShowMenuState extends State<ShowMenu> {
   }
 
   Future<void> readFireStore() async {
-    CollectionReference collectionReference = fireStore.collection('home');
+    CollectionReference collectionReference = fireStore.collection('teach');
     subscription = await collectionReference.snapshots().listen((dataSnapshop) {
       snapshots = dataSnapshop.documents;
 
@@ -50,7 +50,7 @@ class _ShowMenuState extends State<ShowMenu> {
       margin: EdgeInsets.all(6.0),
       decoration: BoxDecoration(
           border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
-      width: 250.0,
+      width: 200.0,
       height: 200.0,
       child: Image.network(
         productMenus[index].url,

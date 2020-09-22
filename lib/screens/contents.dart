@@ -1,12 +1,12 @@
 
 import 'dart:async';
+import 'dart:html';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 // ignore: unused_import
 import 'package:doctor_com/menu/product_contentsdetail.dart';
 // ignore: unused_import
 import 'package:doctor_com/screens/contentsdetail.dart';
-import 'package:doctor_com/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class ShowContents extends StatefulWidget {
@@ -96,7 +96,7 @@ class _ShowContactState extends State<ShowContents> {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 showImage(index),
                 SizedBox(

@@ -46,7 +46,7 @@ class _ShowDetailState extends State<ShowDetail> {
       height: 200.0,
       child: Image.network(
         productMenu.url,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
       ),
     );
   }

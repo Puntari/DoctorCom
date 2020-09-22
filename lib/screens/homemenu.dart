@@ -152,7 +152,7 @@ class _HomemenuState extends State<Homemenu> {
           Container(
             width: 70.0,
             height: 70.0,
-            child: Image.asset('images/logo.png'),
+            child: Image.asset('images/lg.png'),
           ), //โชว์รูป
           Text(
             'DOCTORCOM',
