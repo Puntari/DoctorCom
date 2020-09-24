@@ -9,7 +9,12 @@ class _ShowContactState extends State<ShowAbout> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('เกี่ยวกับเรา'),
+      child: Text('เวอร์ชั่น 1.0.1',
+      style: TextStyle(
+        fontSize: 24,
+        color: Colors.grey,
+      ),
+      ),
     );
   }
 }

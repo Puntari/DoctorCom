@@ -2,6 +2,7 @@
 import 'package:doctor_com/menu/product_contentsdetail.dart';
 // ignore: unused_import
 import 'package:doctor_com/menu/product_detail.dart';
+import 'package:doctor_com/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class ShowContentsdetail extends StatefulWidget {
@@ -30,6 +31,7 @@ class _ShowContentsdetailState extends State<ShowContentsdetail> {
       solve = productContentsdetail.solve; 
       url = productContentsdetail.url;
       print('name = $name');
+      print('problem = $problem');
     });
   }
 Widget showName() {
@@ -45,6 +47,27 @@ Widget showName() {
     );
   }
 
+  Widget showProblam(){
+    return Container(
+      child: Text(
+        productContentsdetail.problem,
+        style: TextStyle(fontSize: 20,
+        
+        ),
+      ),
+    );
+  }
+
+   Widget showText() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        showProblam(),
+      ],
+    );
+  }
+
+
 
   Widget build(BuildContext context) {
      return Scaffold(
@@ -55,6 +78,7 @@ Widget showName() {
         padding: EdgeInsets.all(20.0),
         children: <Widget>[
           showName(),
+          showText(),
          
           
         ],

@@ -74,7 +74,7 @@ class _ShowContactState extends State<ShowContents> {
 
   Widget showName(int index) {
     return Container(
-      width: 200,
+      width: 200, 
       child: Text(
         productContentsdetails[index].name,
         style: TextStyle(fontSize: 20.0,),
