@@ -19,7 +19,8 @@ class _ShowContactState extends State<ShowContents> {
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
   List<ProductContentsdetail> productContentsdetails = [];
-  
+
+
   //Method
 
   @override
@@ -29,30 +30,32 @@ class _ShowContactState extends State<ShowContents> {
   }
 
   Future<void> readFireStore() async {
-    CollectionReference collectionReference = fireStore.collection('contents');
+    CollectionReference collectionReference = fireStore.collection("contents");
     subscription = await collectionReference.snapshots().listen((dataSnapshop) {
       snapshots = dataSnapshop.documents;
+      
+        for (var snapshot in snapshots) {
+          print('snapshot = $snapshot');
 
-      for (var snapshot in snapshots) {
         String name = snapshot.data['Name'];
-        print('name ==> $name');
+         print('name = $name');
+       
 
         String problem = snapshot.data['Problem'];
-        print('problem ==> $problem');
+        print('problem = $problem');
 
         String solve = snapshot.data['Solve'];
         print('solve = $solve');
-        
-        String url = snapshot.data['Url']; 
 
-        ProductContentsdetail productContentsdetail =
-        ProductContentsdetail(name, problem, solve, url);
+        String url = snapshot.data['Url'];
+
+        ProductContentsdetail productContentsdetail = ProductContentsdetail(name, problem, solve, url);
 
         setState(() {
           productContentsdetails.add(productContentsdetail);
         });
       }
-    });
+      });
   }
 
    Widget showImage(int index) {
@@ -70,10 +73,19 @@ class _ShowContactState extends State<ShowContents> {
   }
 
   Widget showName(int index) {
-    return Text(
-      productContentsdetails[index].name,
-      style: TextStyle(fontSize: 18.0,),
+    return Container(
+      width: 230, 
+      child: Text(
+        productContentsdetails[index].name,
+        style: TextStyle(fontSize: 20.0,),
+        ),
     );
+    
+    /*Text(
+      productContentsdetails[index].name,
+      style: TextStyle(fontSize: 16.0,),
+    );*/
+    
   }
  
   Widget showText(int index) {
@@ -85,12 +97,17 @@ class _ShowContactState extends State<ShowContents> {
     );
   }
 
+
   Widget showListMenucontents() {
     return Container(
       child: ListView.builder(
         itemCount: productContentsdetails.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
+            child: Container(
+              decoration: index % 2 == 0
+                  ? BoxDecoration(color: Colors.blue[50])
+                  : BoxDecoration(color: Colors.blue[150]),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -101,6 +118,8 @@ class _ShowContactState extends State<ShowContents> {
                 showText(index),
               ],
             ),
+            ),
+        
             onTap: () {
               print('you click index = $index');
               var showContentsdetailRoute = MaterialPageRoute(

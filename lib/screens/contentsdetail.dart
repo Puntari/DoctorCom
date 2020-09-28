@@ -2,6 +2,7 @@
 import 'package:doctor_com/menu/product_contentsdetail.dart';
 // ignore: unused_import
 import 'package:doctor_com/menu/product_detail.dart';
+import 'package:doctor_com/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class ShowContentsdetail extends StatefulWidget {
@@ -30,25 +31,46 @@ class _ShowContentsdetailState extends State<ShowContentsdetail> {
       solve = productContentsdetail.solve; 
       url = productContentsdetail.url;
       print('name = $name');
+      print('problem = $problem');
     });
   }
 Widget showName() {
     return Container(
-      alignment: Alignment.center,
+      alignment: Alignment.topCenter,
       child: Text(
         productContentsdetail.name,
         style: TextStyle(
-          fontSize: 15.0,
+          fontSize: 24.0,
           color: Colors.purple,
         ),
       ),
     );
   }
 
+  Widget showProblam(){
+    return Container(
+      child: Text(
+        productContentsdetail.problem,
+        style: TextStyle(fontSize: 20,
+        
+        ),
+      ),
+    );
+  }
+
+   Widget showText() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        showProblam(),
+      ],
+    );
+  }
+
+
 
   Widget build(BuildContext context) {
      return Scaffold(
-      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text('วิธีแก้ปัญหา'),
       ),
@@ -56,6 +78,7 @@ Widget showName() {
         padding: EdgeInsets.all(20.0),
         children: <Widget>[
           showName(),
+          showText(),
          
           
         ],
