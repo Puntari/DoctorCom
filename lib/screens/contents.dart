@@ -38,11 +38,7 @@ class _ShowContactState extends State<ShowContents> {
         print('name ==> $name');
 
         String problem = snapshot.data['Problem'];
-        print('problem ==> $problem');
-
         String solve = snapshot.data['Solve'];
-        print('solve = $solve');
-        
         String url = snapshot.data['Url']; 
 
         ProductContentsdetail productContentsdetail =
@@ -60,7 +56,7 @@ class _ShowContactState extends State<ShowContents> {
       margin: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
           border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
-      width: 150.0,
+      width: 120.0,
       height: 100.0,
       child: Image.network(
         productContentsdetails[index].url,
@@ -70,9 +66,12 @@ class _ShowContactState extends State<ShowContents> {
   }
 
   Widget showName(int index) {
-    return Text(
+    return Container(
+      width: 200,
+      child: Text(
       productContentsdetails[index].name,
-      style: TextStyle(fontSize: 18.0,),
+      style: TextStyle(fontSize: 18.0),
+      ),
     );
   }
  
@@ -91,15 +90,22 @@ class _ShowContactState extends State<ShowContents> {
         itemCount: productContentsdetails.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
+            child: Container(
+              decoration: index % 2 == 0
+                  ? BoxDecoration(color: Colors.yellow[50])
+                  : BoxDecoration(color: Colors.yellow[200]),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 showImage(index),
+               
                 SizedBox(
-                  width: 8.0,
+                  width: 5.0,
                 ),
                 showText(index),
+               
               ],
+            ),
             ),
             onTap: () {
               print('you click index = $index');

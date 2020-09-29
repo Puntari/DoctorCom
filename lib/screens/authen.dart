@@ -15,8 +15,9 @@ class _AuthenState extends State<Authen> {
 
   Widget showLogo() {
     return Image.asset(
-      'images/logo.png',
+      'images/logodoctorcomm.png',
       fit: BoxFit.contain,
+      width: 250.0,
     );
   }
 

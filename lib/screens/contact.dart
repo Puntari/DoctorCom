@@ -9,13 +9,20 @@ class _ShowContactState extends State<ShowContact> {
   //Explicit
 
 //Method
+Widget showLogo() {
+    return Image.asset(
+      'images/contact.png',
+      fit: BoxFit.contain,
+      width: 150.0,
+    );
+  }
 
- Widget showLogo() {
+ Widget showtext() {
    return ListTile(
       leading: Icon(
         Icons.contact_phone,
         size: 50.0,
-        color: Colors.lightBlue,
+        color: Colors.grey,
       ),
       title: Text(
         '086-259-6985',
@@ -30,15 +37,12 @@ class _ShowContactState extends State<ShowContact> {
    return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.grey,Colors.grey],
-                begin: Alignment.topCenter)),
-        padding: EdgeInsets.only(top: 180.0),
+        padding: EdgeInsets.only(top: 10.0),
         alignment: Alignment.topCenter,
         child: Column(
           children: <Widget>[
             showLogo(),
+            showtext(),
            
           ],
         ),

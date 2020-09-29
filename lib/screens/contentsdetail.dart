@@ -32,6 +32,7 @@ class _ShowContentsdetailState extends State<ShowContentsdetail> {
       print('name = $name');
     });
   }
+
 Widget showName() {
     return Container(
       alignment: Alignment.center,
@@ -45,7 +46,18 @@ Widget showName() {
     );
   }
 
-
+Widget showText() {
+    return Container(
+      alignment: Alignment.center,
+      child: Text(
+        productContentsdetail.solve,
+        style: TextStyle(
+          fontSize: 15.0,
+          color: Colors.purple,
+        ),
+      ),
+    );
+  }
   Widget build(BuildContext context) {
      return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -56,6 +68,7 @@ Widget showName() {
         padding: EdgeInsets.all(20.0),
         children: <Widget>[
           showName(),
+          showText()
          
           
         ],

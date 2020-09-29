@@ -17,6 +17,12 @@ class _HomemenuState extends State<Homemenu> {
   Widget myWidget = ShowMenu();
 
   //Method
+    Widget myDivider() {
+    return Divider(
+      height: 8.0,
+      color: Colors.grey,
+    );
+  } //เส้นขั้น
   Widget menuShowMenu() {
     return ListTile(
       leading: Icon(
@@ -128,11 +134,11 @@ class _HomemenuState extends State<Homemenu> {
       child: ListView(
         children: <Widget>[
           headMenu(),
-          menuShowMenu(),
-          menuShowcontents(),
-          menuShowcamera(),
-          menuShowcontact(),
-          menuShowabout(),
+          menuShowMenu(),myDivider(),
+          menuShowcontents(),myDivider(),
+          menuShowcamera(),myDivider(),
+          menuShowcontact(),myDivider(),
+          menuShowabout(),myDivider(),
         ],
       ),
     );
@@ -150,9 +156,9 @@ class _HomemenuState extends State<Homemenu> {
       child: Column(
         children: <Widget>[
           Container(
-            width: 70.0,
-            height: 70.0,
-            child: Image.asset('images/logo.png'),
+            width: 50.0,
+            height: 50.0,
+            child: Image.asset('images/docotorcom.png'),
           ), //โชว์รูป
           Text(
             'DOCTORCOM',

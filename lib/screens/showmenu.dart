@@ -26,7 +26,7 @@ class _ShowMenuState extends State<ShowMenu> {
   }
 
   Future<void> readFireStore() async {
-    CollectionReference collectionReference = fireStore.collection('home');
+    CollectionReference collectionReference = fireStore.collection('teach');
     subscription = await collectionReference.snapshots().listen((dataSnapshop) {
       snapshots = dataSnapshop.documents;
 

@@ -43,7 +43,7 @@ class _ShowDetailState extends State<ShowDetail> {
 
   Widget showImage() {
     return Container(
-      height: 200.0,
+      height: 300.0,
       child: Image.network(
         productMenu.url,
         fit: BoxFit.cover,
