@@ -43,15 +43,13 @@ class _ShowDetailState extends State<ShowDetail> {
 
   Widget showImage() {
     return Container(
-      height: 300.0,
+      height: 170,
       child: Image.network(
         productMenu.url,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
       ),
     );
   }
-
-
 
 
   @override

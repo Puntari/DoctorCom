@@ -19,7 +19,8 @@ class _ShowContactState extends State<ShowContents> {
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
   List<ProductContentsdetail> productContentsdetails = [];
-  
+
+
   //Method
 
   @override
@@ -29,26 +30,28 @@ class _ShowContactState extends State<ShowContents> {
   }
 
   Future<void> readFireStore() async {
-    CollectionReference collectionReference = fireStore.collection('contents');
+    CollectionReference collectionReference = fireStore.collection("contents");
     subscription = await collectionReference.snapshots().listen((dataSnapshop) {
       snapshots = dataSnapshop.documents;
+      
+        for (var snapshot in snapshots) {
+          print('snapshot = $snapshot');
 
-      for (var snapshot in snapshots) {
         String name = snapshot.data['Name'];
-        print('name ==> $name');
+         print('name = $name');
+       
 
         String problem = snapshot.data['Problem'];
         String solve = snapshot.data['Solve'];
         String url = snapshot.data['Url']; 
 
-        ProductContentsdetail productContentsdetail =
-        ProductContentsdetail(name, problem, solve, url);
+        ProductContentsdetail productContentsdetail = ProductContentsdetail(name, problem, solve, url);
 
         setState(() {
           productContentsdetails.add(productContentsdetail);
         });
       }
-    });
+      });
   }
 
    Widget showImage(int index) {
@@ -73,6 +76,12 @@ class _ShowContactState extends State<ShowContents> {
       style: TextStyle(fontSize: 18.0),
       ),
     );
+    
+    /*Text(
+      productContentsdetails[index].name,
+      style: TextStyle(fontSize: 16.0,),
+    );*/
+    
   }
  
   Widget showText(int index) {
@@ -83,6 +92,7 @@ class _ShowContactState extends State<ShowContents> {
       ],
     );
   }
+
 
   Widget showListMenucontents() {
     return Container(
@@ -107,6 +117,7 @@ class _ShowContactState extends State<ShowContents> {
               ],
             ),
             ),
+        
             onTap: () {
               print('you click index = $index');
               var showContentsdetailRoute = MaterialPageRoute(

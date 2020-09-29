@@ -53,7 +53,7 @@ class _ShowContactState extends State<ShowAbout> {
     );
   }
 
-/* Widget showTextfai() {
+    Widget showTextfai() {
     return Text(
       'ชื่อ นางสาว ปุณฑริกา สายหยุด',
       style: TextStyle(
@@ -63,7 +63,7 @@ class _ShowContactState extends State<ShowAbout> {
       ),
     );
   }
-*/
+
 
 
 
@@ -81,7 +81,7 @@ class _ShowContactState extends State<ShowAbout> {
             showFon(),
             showTextfon(),
             showFai(),
-            //showTextfai()
+            showTextfai()
           ],
         ),
       ),

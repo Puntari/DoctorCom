@@ -14,11 +14,17 @@ class _AuthenState extends State<Authen> {
 //Method
 
   Widget showLogo() {
-    return Image.asset(
-      'images/logodoctorcomm.png',
-      fit: BoxFit.contain,
-      width: 250.0,
+    return Container(
+      width: 200,
+      height: 200,
+      child: Image.asset('images/lg.png',fit: BoxFit.contain,),
+      
     );
+    
+    /*Image.asset(
+      'images/lg.png',
+      fit: BoxFit.contain,
+    );*/
   }
 
   Widget mySizeBox() {
