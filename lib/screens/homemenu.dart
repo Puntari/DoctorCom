@@ -51,7 +51,7 @@ class _HomemenuState extends State<Homemenu> {
         color: Colors.grey,
       ),
       title: Text(
-        'contents',
+        'Contents',
         style: TextStyle(fontSize: 14.0),
       ),
      onTap: () {
@@ -158,7 +158,7 @@ class _HomemenuState extends State<Homemenu> {
           Container(
             width: 70.0,
             height: 70.0,
-            child: Image.asset('images/lg.png'),
+            child: Image.asset('images/doctorcom.png'),
           ), //โชว์รูป
           Text(
             'DOCTORCOM',

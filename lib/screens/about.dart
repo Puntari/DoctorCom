@@ -9,7 +9,7 @@ class _ShowContactState extends State<ShowAbout> {
 
   Widget showPly() {
     return Image.asset(
-      'images/search.png',
+      'images/contact.png',
       fit: BoxFit.contain,
       width: 130.0,
     );
@@ -28,7 +28,7 @@ class _ShowContactState extends State<ShowAbout> {
 
   Widget showFon() {
     return Image.asset(
-      'images/scan.png',
+      'images/contact.png',
       fit: BoxFit.contain,
       width: 130.0,
     );
@@ -47,7 +47,7 @@ class _ShowContactState extends State<ShowAbout> {
 
   Widget showFai() {
     return Image.asset(
-      'images/download.png',
+      'images/contact.png',
       fit: BoxFit.contain,
       width: 130.0,
     );

@@ -17,7 +17,8 @@ class _AuthenState extends State<Authen> {
     return Container(
       width: 200,
       height: 200,
-      child: Image.asset('images/lg.png',fit: BoxFit.contain,),
+      child: Image.asset('images/logodoctorcomm.png',
+      fit: BoxFit.contain,),
       
     );
     

@@ -50,7 +50,7 @@ class _ShowMenuState extends State<ShowMenu> {
       margin: EdgeInsets.all(6.0),
       decoration: BoxDecoration(
           border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
-      width: 200.0,
+      width: 250.0,
       height: 200.0,
       child: Image.network(
         productMenus[index].url,
@@ -59,14 +59,14 @@ class _ShowMenuState extends State<ShowMenu> {
     );
   }
 
-   /*Widget Showtext(int index) {
+  /* Widget showtext(int index) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         showName(index)],
     );
-  }*/
-
+  }
+*/
   Widget showName(int index) {
     return Text(
       productMenus[index].name,
@@ -84,10 +84,11 @@ class _ShowMenuState extends State<ShowMenu> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 showImage(index),
+               
                 SizedBox(
                   width: 8.0,
                 ),
-                //Showtext(index),
+                //showtext(index),
               ],
             ),
             onTap: () {
