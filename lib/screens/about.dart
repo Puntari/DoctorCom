@@ -7,25 +7,6 @@ class ShowAbout extends StatefulWidget {
 
 class _ShowContactState extends State<ShowAbout> {
 
-  Widget showPly() {
-    return Image.asset(
-      'images/contact.png',
-      fit: BoxFit.contain,
-      width: 130.0,
-    );
-  }
-
-  Widget showTextply() {
-    return Text(
-      'ชื่อ นาย ณัฐกาญจน์ ภิญโญทรัพย์',
-      style: TextStyle(
-        fontSize: 15.0,
-        fontWeight: FontWeight.bold,
-        fontFamily: 'AmaticSC',
-      ),
-    );
-  }
-
   Widget showFon() {
     return Image.asset(
       'images/contact.png',
@@ -45,6 +26,24 @@ class _ShowContactState extends State<ShowAbout> {
     );
   }
 
+ Widget showPly() {
+    return Image.asset(
+      'images/contact.png',
+      fit: BoxFit.contain,
+      width: 130.0,
+    );
+  }
+
+  Widget showTextply() {
+    return Text(
+      'ชื่อ นาย ณัฐกาญจน์ ภิญโญทรัพย์',
+      style: TextStyle(
+        fontSize: 15.0,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'AmaticSC',
+      ),
+    );
+  }
   Widget showFai() {
     return Image.asset(
       'images/contact.png',
@@ -63,10 +62,7 @@ class _ShowContactState extends State<ShowAbout> {
       ),
     );
   }
-
-
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,10 +72,10 @@ class _ShowContactState extends State<ShowAbout> {
         alignment: Alignment.topCenter,
         child: Column(
           children: <Widget>[
-            showPly(),
-            showTextply(),
             showFon(),
             showTextfon(),
+            showPly(),
+            showTextply(),
             showFai(),
             showTextfai()
           ],

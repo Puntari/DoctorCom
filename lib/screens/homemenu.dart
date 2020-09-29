@@ -46,7 +46,7 @@ class _HomemenuState extends State<Homemenu> {
    Widget menuShowcontents() {
     return ListTile(
       leading: Icon(
-        Icons.home,
+        Icons.book,
         size: 35.0,
         color: Colors.grey,
       ),
@@ -148,7 +148,7 @@ class _HomemenuState extends State<Homemenu> {
     return DrawerHeader(
       decoration: BoxDecoration(
         gradient: RadialGradient(
-          colors: [Colors.yellow[100], Colors.yellow[900]],
+          colors: [Colors.yellow[200], Colors.yellow[500]],
           radius: 1.0,
           center: Alignment.center,
         ),
@@ -158,7 +158,7 @@ class _HomemenuState extends State<Homemenu> {
           Container(
             width: 70.0,
             height: 70.0,
-            child: Image.asset('images/doctorcom.png'),
+            child: Image.asset('images/lg.png'),
           ), //โชว์รูป
           Text(
             'DOCTORCOM',
