@@ -68,7 +68,7 @@ class _ShowContactState extends State<ShowAbout> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       body: Container(
-        padding: EdgeInsets.only(top: 10.0),
+        padding: EdgeInsets.only(top: 30.0),
         alignment: Alignment.topCenter,
         child: Column(
           children: <Widget>[
