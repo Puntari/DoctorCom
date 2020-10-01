@@ -1,4 +1,4 @@
-import 'package:doctor_com/screens/authen.dart';
+import 'package:Doctorcom/screens/authen.dart';
 import 'package:flutter/material.dart';
 
 main() {

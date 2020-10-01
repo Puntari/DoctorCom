@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:doctor_com/menu/product_menu.dart';
-import 'package:doctor_com/screens/detail.dart';
+import 'package:Doctorcom/menu/product_menu.dart';
+import 'package:Doctorcom/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class ShowMenu extends StatefulWidget {

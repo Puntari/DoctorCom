@@ -1,4 +1,4 @@
-import 'package:doctor_com/menu/product_menu.dart';
+import 'package:Doctorcom/menu/product_menu.dart';
 import 'package:flutter/material.dart';
 
 class ShowDetail extends StatefulWidget {

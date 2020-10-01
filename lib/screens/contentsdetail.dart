@@ -1,8 +1,8 @@
 // ignore: unused_import
-import 'package:doctor_com/menu/product_contentsdetail.dart';
+import 'package:Doctorcom/menu/product_contentsdetail.dart';
 // ignore: unused_import
-import 'package:doctor_com/menu/product_detail.dart';
-import 'package:doctor_com/screens/detail.dart';
+import 'package:Doctorcom/menu/product_detail.dart';
+import 'package:Doctorcom/screens/detail.dart';
 import 'package:flutter/material.dart';
 
 class ShowContentsdetail extends StatefulWidget {

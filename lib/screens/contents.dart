@@ -3,9 +3,9 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 // ignore: unused_import
-import 'package:doctor_com/menu/product_contentsdetail.dart';
+import 'package:Doctorcom/menu/product_contentsdetail.dart';
 // ignore: unused_import
-import 'package:doctor_com/screens/contentsdetail.dart';
+import 'package:Doctorcom/screens/contentsdetail.dart';
 import 'package:flutter/material.dart';
 
 class ShowContents extends StatefulWidget {

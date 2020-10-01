@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "587579990998",
-    "firebase_url": "https://doctorcom-6e156.firebaseio.com",
-    "project_id": "doctorcom-6e156",
-    "storage_bucket": "doctorcom-6e156.appspot.com"
+    "project_number": "508913538554",
+    "firebase_url": "https://doctorcom-bff1c.firebaseio.com",
+    "project_id": "doctorcom-bff1c",
+    "storage_bucket": "doctorcom-bff1c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:587579990998:android:db6b63eff3fd3b2b",
+        "mobilesdk_app_id": "1:508913538554:android:514edffda3b93c648e8043",
         "android_client_info": {
           "package_name": "th.ac.ssru.doctor_com"
         }
       },
       "oauth_client": [
         {
-          "client_id": "587579990998-v56nmlb24bcs9q5pflp7banm2he9jk8b.apps.googleusercontent.com",
+          "client_id": "508913538554-02n7rvuja4513n7c9054hj35vhctg2o4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDJpXfD36C7BUE27N2jsV-2XTJo8LPGqes"
+          "current_key": "AIzaSyDMkS3pnxEBLjIXlZM5C8K_5rfEZjKspp8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "587579990998-v56nmlb24bcs9q5pflp7banm2he9jk8b.apps.googleusercontent.com",
+              "client_id": "508913538554-02n7rvuja4513n7c9054hj35vhctg2o4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,7 +1,7 @@
-import 'package:doctor_com/screens/about.dart';
-import 'package:doctor_com/screens/camera.dart';
-import 'package:doctor_com/screens/contents.dart';
-import 'package:doctor_com/screens/showmenu.dart';
+import 'package:Doctorcom/screens/about.dart';
+import 'package:Doctorcom/screens/camera.dart';
+import 'package:Doctorcom/screens/contents.dart';
+import 'package:Doctorcom/screens/showmenu.dart';
 import 'package:flutter/material.dart';
 
 import 'contact.dart';
