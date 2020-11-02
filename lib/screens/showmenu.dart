@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' show CollectionReference, DocumentSnapshot, Firestore, QuerySnapshot;
 import 'package:Doctorcom/menu/product_menu.dart';
 import 'package:Doctorcom/screens/detail.dart';
 import 'package:flutter/material.dart';
