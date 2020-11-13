@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // ignore: unused_import
@@ -11,13 +10,13 @@ class ShowContents extends StatefulWidget {
   @override
   _ShowContactState createState() => _ShowContactState();
 }
+
 class _ShowContactState extends State<ShowContents> {
- //Explicit
+  //Explicit
   Firestore fireStore = Firestore.instance;
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
   List<ProductContentsdetail> productContentsdetails = [];
-
 
   //Method
 
@@ -31,28 +30,28 @@ class _ShowContactState extends State<ShowContents> {
     CollectionReference collectionReference = fireStore.collection("contents");
     subscription = await collectionReference.snapshots().listen((dataSnapshop) {
       snapshots = dataSnapshop.documents;
-      
-        for (var snapshot in snapshots) {
-          print('snapshot = $snapshot');
+
+      for (var snapshot in snapshots) {
+        print('snapshot = $snapshot');
 
         String name = snapshot.data['Name'];
-         print('name = $name');
-       
+        print('name = $name');
 
         String problem = snapshot.data['Problem'];
         String solve = snapshot.data['Solve'];
-        String url = snapshot.data['Url']; 
+        String url = snapshot.data['Url'];
 
-        ProductContentsdetail productContentsdetail = ProductContentsdetail(name, problem, solve, url);
+        ProductContentsdetail productContentsdetail =
+            ProductContentsdetail(name, problem, solve, url);
 
         setState(() {
           productContentsdetails.add(productContentsdetail);
         });
       }
-      });
+    });
   }
 
-   Widget showImage(int index) {
+  Widget showImage(int index) {
     return Container(
       margin: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
@@ -70,18 +69,17 @@ class _ShowContactState extends State<ShowContents> {
     return Container(
       width: 200,
       child: Text(
-      productContentsdetails[index].name,
-      style: TextStyle(fontSize: 18.0),
+        productContentsdetails[index].name,
+        style: TextStyle(fontSize: 18.0),
       ),
     );
-    
+
     /*Text(
       productContentsdetails[index].name,
       style: TextStyle(fontSize: 16.0,),
     );*/
-    
   }
- 
+
   Widget showText(int index) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -90,7 +88,6 @@ class _ShowContactState extends State<ShowContents> {
       ],
     );
   }
-
 
   Widget showListMenucontents() {
     return Container(
@@ -102,27 +99,25 @@ class _ShowContactState extends State<ShowContents> {
               decoration: index % 2 == 0
                   ? BoxDecoration(color: Colors.yellow[50])
                   : BoxDecoration(color: Colors.yellow[200]),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                showImage(index),
-               
-                SizedBox(
-                  width: 5.0,
-                ),
-                showText(index),
-               
-              ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  showImage(index),
+                  SizedBox(
+                    width: 5.0,
+                  ),
+                  showText(index),
+                ],
+              ),
             ),
-            ),
-        
             onTap: () {
               print('you click index = $index');
               var showContentsdetailRoute = MaterialPageRoute(
                   builder: (BuildContext context) => ShowContentsdetail(
                         productContentsdetail: productContentsdetails[index],
                       ));
-                  Navigator.of(context).push(showContentsdetailRoute);
+              Navigator.of(context).push(showContentsdetailRoute);
+
               ///click ที่รูปแล้วไปอีกหน้า
             },
           );

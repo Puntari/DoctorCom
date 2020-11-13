@@ -10,7 +10,7 @@ class ShowContact extends StatefulWidget {
 
 class _ShowContactState extends State<ShowContact> {
 //Explicit
- Firestore fireStore = Firestore.instance;
+  Firestore fireStore = Firestore.instance;
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> snapshots;
   List<ProductContact> productContacts = [];

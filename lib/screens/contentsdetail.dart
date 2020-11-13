@@ -19,7 +19,7 @@ class _ShowContentsdetailState extends State<ShowContentsdetail> {
   String name = '', problem ='', solve ='', url ='';
 
   // Method
-  @override
+  @override 
     void initState() {
     // TODO: implement initState
     super.initState();
