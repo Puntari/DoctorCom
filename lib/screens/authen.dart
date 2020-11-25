@@ -73,7 +73,7 @@ class _AuthenState extends State<Authen> {
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.yellow, Colors.black],
+                colors: [Colors.red, Colors.black],
                 begin: Alignment.topCenter)),
         padding: EdgeInsets.only(top: 180.0),
         alignment: Alignment.topCenter,
