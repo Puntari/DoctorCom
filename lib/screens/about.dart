@@ -9,9 +9,10 @@ class _ShowContactState extends State<ShowAbout> {
 
   Widget showFon() {
     return Image.asset(
-      'images/contact.png',
+      'images/fon.jpg',
       fit: BoxFit.contain,
-      width: 130.0,
+      width: 120.0,
+      height: 120.0,
     );
   }
 
@@ -28,9 +29,10 @@ class _ShowContactState extends State<ShowAbout> {
 
  Widget showPly() {
     return Image.asset(
-      'images/contact.png',
+      'images/pai.jpg',
       fit: BoxFit.contain,
-      width: 130.0,
+      width: 120.0,
+      height: 120.0,
     );
   }
 
@@ -46,9 +48,10 @@ class _ShowContactState extends State<ShowAbout> {
   }
   Widget showFai() {
     return Image.asset(
-      'images/contact.png',
+      'images/faii.jpg',
       fit: BoxFit.contain,
-      width: 130.0,
+      width: 120.0,
+      height: 165.0,
     );
   }
 

@@ -50,6 +50,9 @@ flutter:
    - images/contact.png
    - images/logodoctorcomm.png
    - images/doctorcom.png
+   - images/faii.jpg
+   - images/pai.jpg
+   - images/fon.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
