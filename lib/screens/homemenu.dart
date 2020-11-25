@@ -13,7 +13,6 @@ class Homemenu extends StatefulWidget {
 
 class _HomemenuState extends State<Homemenu> {
   //Explicit
-
   Widget myWidget = ShowMenu();
 
   //Method
@@ -147,18 +146,20 @@ class _HomemenuState extends State<Homemenu> {
   Widget headMenu() {
     return DrawerHeader(
       decoration: BoxDecoration(
-        gradient: RadialGradient(
+        gradient:RadialGradient(
+          //colors: [Colors.white,Colors.black],
           colors: [Colors.yellow[200], Colors.yellow[500]],
           radius: 1.0,
           center: Alignment.center,
-        ),
+          
+         ),
       ), //พื้นหลังด้านกล่องบน
       child: Column(
         children: <Widget>[
           Container(
             width: 70.0,
             height: 70.0,
-            child: Image.asset('images/lg.png'),
+            child: Image.asset('images/logodoctorcomm.png'),
           ), //โชว์รูป
           Text(
             'DOCTORCOM',
