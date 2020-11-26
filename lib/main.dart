@@ -1,4 +1,5 @@
 import 'package:Doctorcom/screens/authen.dart';
+import 'package:Doctorcom/screens/contact.dart';
 import 'package:flutter/material.dart';
 
 main() {

@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 class ShowContact extends StatefulWidget {
   @override
   _ShowContactState createState() => _ShowContactState();
+
 }
+
+
 
 class _ShowContactState extends State<ShowContact> {
 //Explicit
@@ -60,7 +63,7 @@ class _ShowContactState extends State<ShowContact> {
 
   Widget showName(int index) {
     return Container(
-      width: 150,
+      width: 110,
       child: Text(
       productContacts[index].name,
       style: TextStyle(fontSize: 18.0),
@@ -70,11 +73,19 @@ class _ShowContactState extends State<ShowContact> {
 
     Widget showText(int index) {
     return Container(
-      width: 200,
-      child: Text(
+     // width: 200,
+     /* child: Text(
       productContacts[index].tel,
-      style: TextStyle(fontSize: 18.0),
+      style: TextStyle(fontSize: 18.0, color: Colors.grey),
+      
+      ),*/
+
+      child: SelectableText(
+        productContacts[index].tel,
+        style: TextStyle(fontSize: 18.0,
+        color: Colors.grey[600]),
       ),
+      
     );
   }
 
@@ -90,13 +101,14 @@ class _ShowContactState extends State<ShowContact> {
               children: <Widget>[
                 showImage(index),
                 showName(index),
-               
+                showText(index),
                 SizedBox(
                   width: 5.0,
                 ),
-              
               ],
+
             ),
+        
           );
         },
       ),
