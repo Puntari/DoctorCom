@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:Doctorcom/settingKorgPly/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // ignore: unused_import
 import 'package:Doctorcom/menu/product_contentsdetail.dart';
@@ -53,9 +54,11 @@ class _ShowContactState extends State<ShowContents> {
 
   Widget showImage(int index) {
     return Container(
-      margin: EdgeInsets.all(5.0),
+      margin: EdgeInsets.symmetric(horizontal: kDefaultPadding*0.0),
+      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      //margin: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
-          border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
+          border: Border.all(width: 0.0,color: Colors.transparent), borderRadius: BorderRadius.circular(30.0)),
       width: 120.0,
       height: 100.0,
       child: Image.network(
@@ -67,7 +70,8 @@ class _ShowContactState extends State<ShowContents> {
 
   Widget showName(int index) {
     return Container(
-      width: 200,
+
+      width: 220,
       child: Text(
         productContentsdetails[index].name,
         style: TextStyle(fontSize: 18.0),
@@ -96,18 +100,27 @@ class _ShowContactState extends State<ShowContents> {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             child: Container(
-              decoration: index % 2 == 0
-                  ? BoxDecoration(color: Colors.yellow[50])
-                  : BoxDecoration(color: Colors.yellow[200]),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  showImage(index),
-                  SizedBox(
-                    width: 5.0,
-                  ),
-                  showText(index),
-                ],
+              // decoration: index % 2 == 0
+              //     ? BoxDecoration(color: Colors.yellow[50])
+              //     : BoxDecoration(color: Colors.yellow[200]),
+              child: Card(
+                margin: EdgeInsets.all(5),
+                elevation: 7,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    showImage(index),
+                    SizedBox(
+                      width: 5.0,
+                    ),
+                    showText(index),
+                  ],
+                ),
               ),
             ),
             onTap: () {

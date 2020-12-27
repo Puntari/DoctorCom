@@ -1,56 +1,54 @@
+import 'dart:async';
 
-import 'package:Doctorcom/screens/authen.dart';
-import 'package:Doctorcom/screens/contact.dart';
-import 'package:flutter/material.dart';
-
-main() {
-  runApp(MyApp(
-  ));
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Authen(),
-    );
-  }
-}
-
-
-/*
-
-
-
+import 'package:Doctorcom/menu/product_contentsdetail.dart';
 import 'package:Doctorcom/settingKorgPly/searchservice.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-main() {
-  runApp(MyApp());
+class SearchProblemBar extends StatefulWidget {
+  SearchProblemBar({Key key}) : super(key: key);
+
+  @override
+  _SearchProblemBarState createState() => _SearchProblemBarState();
 }
 
-class MyApp extends StatelessWidget {
+class _SearchProblemBarState extends State<SearchProblemBar> {
+  Firestore fireStore = Firestore.instance;
+  StreamSubscription<QuerySnapshot> subscription;
+  List<DocumentSnapshot> snapshots;
+  List<ProductContentsdetail> productContentsdetails = [];
+
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(),
-    );
+  void initState() {
+    super.initState();
+    readFireStore();
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  Future<void> readFireStore() async {
+    CollectionReference collectionReference = fireStore.collection("contents");
+    subscription = await collectionReference.snapshots().listen((dataSnapshop) {
+      snapshots = dataSnapshop.documents;
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+      for (var snapshot in snapshots) {
+        print('snapshot = $snapshot');
 
-class _MyHomePageState extends State<MyHomePage> {
+        String name = snapshot.data['Name'];
+        print('name = $name');
+
+        String problem = snapshot.data['Problem'];
+        String solve = snapshot.data['Solve'];
+        String url = snapshot.data['Url'];
+
+        ProductContentsdetail productContentsdetail =
+            ProductContentsdetail(name, problem, solve, url);
+
+        setState(() {
+          productContentsdetails.add(productContentsdetail);
+        });
+      }
+    });
+  }
+
   var queryResultSet = [];
   var tempSearchStore = [];
 
@@ -93,30 +91,33 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: Text('Firestore search'),
+        title: Card(
+          child: TextField(
+            decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search), hintText: 'ค้นหาปัญหาที่นี่'),
+            onChanged: (val) {
+              initiateSearch(val);
+            },
+          ),
+        ),
       ),
       body: ListView(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(10.0),
+            /*
             child: TextField(
               onChanged: (val) {
                 initiateSearch(val);
               },
               decoration: InputDecoration(
-                  prefixIcon: IconButton(
-                    color: Colors.black,
-                    icon: Icon(Icons.arrow_back),
-                    iconSize: 20.0,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                  ),
+                  
                   contentPadding: EdgeInsets.only(left: 25.0),
                   hintText: 'Search by name',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(4.0))),
             ),
+            */
           ),
           SizedBox(
             height: 10.0,
@@ -143,15 +144,15 @@ Widget buildResultCard(data) {
     elevation: 2.0,
     child: Container(
       child: Center(
-          child: Text(
-        data['Name'],
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 20.0,
+        child: Text(
+          data['Name'],
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
+          ),
         ),
-      )),
+      ),
     ),
   );
 }
-*/

@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:cloud_firestore/cloud_firestore.dart' show CollectionReference, DocumentSnapshot, Firestore, QuerySnapshot;
+import 'package:cloud_firestore/cloud_firestore.dart'
+    show CollectionReference, DocumentSnapshot, Firestore, QuerySnapshot;
 import 'package:Doctorcom/menu/product_menu.dart';
 import 'package:Doctorcom/screens/detail.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,8 @@ class _ShowMenuState extends State<ShowMenu> {
     return Container(
       margin: EdgeInsets.all(6.0),
       decoration: BoxDecoration(
-          border: Border.all(), borderRadius: BorderRadius.circular(30.0)),
+          border: Border.all(width: 0.0, color: Colors.transparent),
+          borderRadius: BorderRadius.circular(30.0)),
       width: 250.0,
       height: 200.0,
       child: Image.network(
@@ -80,16 +82,24 @@ class _ShowMenuState extends State<ShowMenu> {
         itemCount: productMenus.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                showImage(index),
-               
-                SizedBox(
-                  width: 8.0,
-                ),
-                //showtext(index),
-              ],
+            child: Card(
+              margin: EdgeInsets.all(16),
+              elevation: 12,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(24),
+              ),
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  showImage(index),
+
+                  SizedBox(
+                    width: 8.0,
+                  ),
+                  //showtext(index),
+                ],
+              ),
             ),
             onTap: () {
               print('you click index = $index');
@@ -98,6 +108,7 @@ class _ShowMenuState extends State<ShowMenu> {
                         productMenu: productMenus[index],
                       ));
               Navigator.of(context).push(showDetailRoute);
+
               ///click ที่รูปแล้วไปอีกหน้า
             },
           );
